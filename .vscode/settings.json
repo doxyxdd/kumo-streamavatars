@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+			"addEvent",
+			"log",
+			"keepAlive"
+		],
+		"Lua.diagnostics.disable": [
+			"lowercase-global"
+		]
+}

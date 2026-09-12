@@ -39,3 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
+# Folder used to put assets that should not be checked like the koomer avatar.
+ignore/*
+!ignore/.gitkeep
