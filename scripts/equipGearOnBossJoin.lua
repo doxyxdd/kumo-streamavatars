@@ -1,10 +1,19 @@
+local gear_set = "class loadout";
+
+-- class_name -> gear_name
 local gear = {
-	mojave_scout = "mojave-scout",
+	cohost = "radio host",
+	["stitch-doctor"] = "stitch doctor",
+  scrapper = "scrapper",
+	["mojave-scout"] = "mojave scout",
 	gardener = "gardener",
-	lantern_keeper = "lantern-keeper",
-	radio_cohost = "radio-cohost",
-	shrine_maiden = "shrine-maiden"
+	["lantern-keeper"] = "lanternkeeper",
+	["shrine-maiden"] = "shrine maiden"
 };
+
+-- Temp gear should be cleared at the end of the battle,
+-- but this is a backup time limit just in case it doesn't.
+local maxTempGearDurationSeconds = 60 * 20;
 
 
 function temporaryGearEquipOnBossJoin(user, class_name)
@@ -16,7 +25,7 @@ function temporaryGearEquipOnBossJoin(user, class_name)
 
 	if gear[class_name] ~= nil then
 		log('setting gear ' .. gear[class_name] .. ' for class ' .. class_name)
-		user.setTemporaryGear('classes', gear[class_name], 1200);
+		user.setTemporaryGear(gear_set, gear[class_name], maxTempGearDurationSeconds);
 	end
 
 	log('boss player: ' .. user.displayName .. ' has joined as ' .. class_name);
